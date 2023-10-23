@@ -1,4 +1,3 @@
-// Define a functional component for rendering a row with a product category.
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -9,9 +8,7 @@ function ProductCategoryRow({ category }) {
   );
 }
 
-// Define a functional component for rendering a row with product details.
 function ProductRow({ product }) {
-  // Create a variable 'name' to conditionally style the product name.
   const name = product.stocked ? (
     product.name
   ) : (
@@ -28,14 +25,11 @@ function ProductRow({ product }) {
   );
 }
 
-// Define a functional component for rendering the product table.
 function ProductTable({ products }) {
   const rows = [];
   let lastCategory = null;
 
-  // Iterate through the list of products and categorize them.
   products.forEach((product) => {
-    // If the product category changes, add a category row to the table.
     if (product.category !== lastCategory) {
       rows.push(
         <ProductCategoryRow
@@ -44,7 +38,6 @@ function ProductTable({ products }) {
         />
       );
     }
-    // Add a product row to the table for each product.
     rows.push(
       <ProductRow
         product={product}
@@ -67,7 +60,6 @@ function ProductTable({ products }) {
   );
 }
 
-// Define a functional component for rendering a search bar and the product table.
 function FilterableProductTable({ products }) {
   return (
     <div>
@@ -77,7 +69,6 @@ function FilterableProductTable({ products }) {
   );
 }
 
-// Define a functional component for rendering the search bar.
 function SearchBar() {
   return (
     <form>
@@ -91,7 +82,6 @@ function SearchBar() {
   );
 }
 
-// Define the main application component and provide it with sample product data.
 const PRODUCTS = [
   { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
   { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
@@ -101,7 +91,6 @@ const PRODUCTS = [
   { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
 ];
 
-// The main App component renders the FilterableProductTable with the sample product data.
 export default function App() {
   return <FilterableProductTable products={PRODUCTS} />;
 }
